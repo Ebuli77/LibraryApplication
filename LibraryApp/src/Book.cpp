@@ -7,12 +7,14 @@
 
 #include "Book.h"
 
-Book::Book() {
+Book::Book()
+{
 	// TODO Auto-generated constructor stub
 
 }
 
-Book::~Book() {
+Book::~Book()
+{
 	// TODO Auto-generated destructor stub
 }
 

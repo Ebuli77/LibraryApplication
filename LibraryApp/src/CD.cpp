@@ -7,12 +7,14 @@
 
 #include "CD.h"
 
-CD::CD() {
+CD::CD()
+{
 	// TODO Auto-generated constructor stub
 
 }
 
-CD::~CD() {
+CD::~CD()
+{
 	// TODO Auto-generated destructor stub
 }
 

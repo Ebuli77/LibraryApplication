@@ -10,7 +10,8 @@
 
 #include "Article.h"
 
-class Movie: public Article {
+class Movie: public Article
+{
 private:
 	int duration;	///< duration in seconds
 public:

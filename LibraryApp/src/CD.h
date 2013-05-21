@@ -10,7 +10,8 @@
 
 #include "Article.h"
 
-class CD: public Article {
+class CD: public Article
+{
 private:
 	int duration;	///< duration in seconds
 public:

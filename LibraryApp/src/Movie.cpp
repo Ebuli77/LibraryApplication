@@ -7,12 +7,14 @@
 
 #include "Movie.h"
 
-Movie::Movie() {
+Movie::Movie()
+{
 	// TODO Auto-generated constructor stub
 
 }
 
-Movie::~Movie() {
+Movie::~Movie()
+{
 	// TODO Auto-generated destructor stub
 }
 

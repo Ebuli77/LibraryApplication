@@ -7,12 +7,14 @@
 
 #include "Customer.h"
 
-Customer::Customer() {
+Customer::Customer()
+{
 	// TODO Auto-generated constructor stub
 
 }
 
-Customer::~Customer() {
+Customer::~Customer()
+{
 	// TODO Auto-generated destructor stub
 }
 

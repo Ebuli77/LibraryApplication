@@ -10,7 +10,8 @@
 
 #include "Article.h"
 
-class Book: public Article {
+class Book: public Article
+{
 private:
 	int pages; ///< number of pages
 public:
