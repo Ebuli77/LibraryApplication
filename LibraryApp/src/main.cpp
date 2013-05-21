@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : main.cpp
-// Author      : Tomi Lammi / Marko Kaikkonen / Matti Tastula
+// Authors      : Tomi Lammi / Marko Kaikkonen / Matti Tastula
 // Version     : 0.1
 // Copyright   : 
 // Description : Library Application
