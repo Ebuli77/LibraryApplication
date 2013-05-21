@@ -7,7 +7,7 @@
 
 #include "Movie.h"
 
-Movie::Movie()
+Movie::Movie(string name): Article(name)
 {
 	// TODO Auto-generated constructor stub
 

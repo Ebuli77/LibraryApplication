@@ -10,6 +10,7 @@
 
 #include <ctime>
 #include <vector>
+#include <string>
 
 class Customer;
 
@@ -17,24 +18,42 @@ using namespace std;
 
 class Article
 {
-private:
-	time_t loan_time;				///< time when loan is made
-	time_t loan_expiration_time;	///< expiration time
-
-	vector<Customer *> *p_customer; ///< customer who has this loan
-	vector<Customer *> *p_reserver; ///< cutomers who are waiting in queue for this loan to be returned
 public:
-	Article();
+
+	enum TYPE {
+		NONE,
+		BOOK,
+		CD,
+		MOVIE
+	};
+
+private:
+	time_t loan_expiration_time;	///< expiration time
+	string name;					///< name of article
+	TYPE type;
+	bool loaned;
+
+protected:
+	void setLoaned(bool loaned);	///< mark as loaned, return false is already is loaned
+
+	void setName(string name);
+	string getName();
+
+	void setType(TYPE type);
+	void getType();
+
+
+
+public:
+
+	Article(string name);
+	//Article(string name, TYPE type, time_t loan_time);
 	virtual ~Article();
 
 	bool isLoaned();
-	bool isReserved();
 	bool isExpired();
 
-	Customer *getCustomer();			///< returns article's current holder
-	vector<Customer *> *getLoanQueue(); ///< returns the waiting customer vector
-
-
+	friend class Library;
 };
 
 #endif /* ARTICLE_H_ */

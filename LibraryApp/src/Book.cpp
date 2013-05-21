@@ -7,7 +7,7 @@
 
 #include "Book.h"
 
-Book::Book()
+Book::Book(string name): Article(name)
 {
 	// TODO Auto-generated constructor stub
 

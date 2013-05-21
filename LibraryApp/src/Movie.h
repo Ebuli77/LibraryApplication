@@ -15,7 +15,7 @@ class Movie: public Article
 private:
 	int duration;	///< duration in seconds
 public:
-	Movie();
+	Movie(string name);
 	virtual ~Movie();
 };
 

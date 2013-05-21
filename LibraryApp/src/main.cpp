@@ -9,12 +9,27 @@
 #include <iostream>
 
 #include "Library.h"
+#include "Customer.h"
+#include "Book.h"
+
 using namespace std;
 
 int main() {
-	Library *pLibrary = new Library();
 	cout << "Hep" << endl;
 
+	Library *pLibrary = new Library();
+
+	Customer *pMarkoKaikkonen = new Customer("Marko", "Kaikkonen");
+	pLibrary->addCustomer(pMarkoKaikkonen);
+
+	Article *pBook = new Book("Kirjanen");
+	pLibrary->addArticle(pBook);
+
+	pLibrary->deleteArticle(pBook);
+
+
 	delete pLibrary;
+	delete pBook;
+	delete pMarkoKaikkonen;
 	return 0;
 }

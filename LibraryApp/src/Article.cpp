@@ -7,10 +7,19 @@
 
 #include "Article.h"
 
-Article::Article(): p_customer(0), p_reserver(0), loan_time(0), loan_expiration_time(0)
+using namespace std;
+
+Article::Article(string name): loan_expiration_time(0), name(name), type(NONE), loaned(false)
 {
 
 }
+
+/*
+Article(string name, TYPE type, time_t loan_time): name(name), loan_time(loan_time), type(type)
+{
+
+}
+*/
 
 Article::~Article()
 {
@@ -20,24 +29,4 @@ Article::~Article()
 bool Article::isLoaned()
 {
 	return false;
-}
-
-bool Article::isReserved()
-{
-	return false;
-}
-
-bool Article::isExpired()
-{
-	return false;
-}
-
-Customer *Article::getCustomer()			///< returns article's current holder
-{
-	return 0;
-}
-
-vector<Customer *> *Article::getLoanQueue() ///< returns the waiting customer vector
-{
-	return 0;
 }

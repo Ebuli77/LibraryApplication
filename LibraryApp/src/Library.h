@@ -11,6 +11,9 @@
 #include <vector>
 
 class Article;
+
+class Loan;
+
 class Customer;
 
 using namespace std;
@@ -20,6 +23,8 @@ class Library
 private:
 	vector<Article *> *p_articles;
 	vector<Customer *> *p_customers;
+	vector<Loan *> *p_loans;
+
 public:
 	Library();
 	virtual ~Library();

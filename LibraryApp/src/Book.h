@@ -15,7 +15,7 @@ class Book: public Article
 private:
 	int pages; ///< number of pages
 public:
-	Book();
+	Book(string name);
 	virtual ~Book();
 };
 

@@ -15,7 +15,7 @@ class CD: public Article
 private:
 	int duration;	///< duration in seconds
 public:
-	CD();
+	CD(string name);
 	virtual ~CD();
 };
 
