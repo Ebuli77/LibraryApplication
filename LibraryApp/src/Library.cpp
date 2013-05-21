@@ -42,7 +42,7 @@ bool Library::deleteArticle(Article *article)
 	if ( !article )
 		return false;
 
-	cout << "Library: poistetaan teos " << article->getName() << "." << endl;
+	//cout << "Library: poistetaan teos " << article->getName() << "." << endl;
 	for (unsigned int i=0; i < p_articles->size(); i++)
 	{
 		if ( article == p_articles->at(i) )
