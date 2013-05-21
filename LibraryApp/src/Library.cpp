@@ -7,7 +7,7 @@
 
 #include "Library.h"
 
-Library::Library()
+Library::Library(): p_articles(0), p_customers(0)
 {
 	// TODO Auto-generated constructor stub
 
@@ -59,4 +59,9 @@ bool Library::returnLoan(Article *article)
 bool Library::updateLoan(Article *article)
 {
 	return false;
+}
+
+vector<Article *> *Library::getExpired()
+{
+	return 0;
 }

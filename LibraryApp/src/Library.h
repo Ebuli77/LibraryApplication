@@ -38,6 +38,8 @@ public:
 	bool returnLoan(Article *article);
 	bool updateLoan(Article *article);
 
+	vector<Article *> *getExpired(); /// return vector table of expired tables. creates ne dynamic table with expired articles. client must release memory with delete.
+
 
 };
 

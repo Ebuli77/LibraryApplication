@@ -7,7 +7,7 @@
 
 #include "Article.h"
 
-Article::Article(): p_customer(0), p_reserver(0)
+Article::Article(): p_customer(0), p_reserver(0), loan_time(0), loan_expiration_time(0)
 {
 
 }

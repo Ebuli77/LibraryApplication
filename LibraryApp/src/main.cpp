@@ -14,5 +14,7 @@ using namespace std;
 int main() {
 	Library *pLibrary = new Library();
 	cout << "Hep" << endl;
+
+	delete pLibrary;
 	return 0;
 }
