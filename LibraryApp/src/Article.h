@@ -15,7 +15,8 @@ class Customer;
 
 using namespace std;
 
-class Article {
+class Article
+{
 private:
 	time_t loan_time;				///< time when loan is made
 	time_t loan_expiration_time;	///< expiration time

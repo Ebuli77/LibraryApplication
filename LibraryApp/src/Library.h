@@ -15,7 +15,8 @@ class Customer;
 
 using namespace std;
 
-class Library {
+class Library
+{
 private:
 	vector<Article *> *p_articles;
 	vector<Customer *> *p_customers;
