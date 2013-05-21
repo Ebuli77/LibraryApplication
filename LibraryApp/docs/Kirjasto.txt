@@ -1,0 +1,20 @@
+Lohkot:
+-Kirjasto
+-Asiakas
+-Teos (kirja/lehti/cd/dvd)
+
+
+Tapahtumat
+-Lainaa
+-Palauta
+-Varaa
+(-Hae/etsi?)
+-Lis‰‰ teos
+-Poista teos
+(L‰het‰ karhu)
+
+
+Ominaisuuksia:
+Teos: Tyyppi, Nimi, Tekij‰, (laina-aika), Julkaisuvuosi, Kappalem‰‰r‰
+Kirjasto: Teokset, Lainaukset(Asiakas:Teos), Asiakkaat
+Asiakas: Etunimi, Sukunimi, Lainat(Lainaus pvm)
