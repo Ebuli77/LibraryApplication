@@ -11,6 +11,8 @@
 #include "Article.h"
 
 class Book: public Article {
+private:
+	int pages; ///< number of pages
 public:
 	Book();
 	virtual ~Book();
