@@ -38,6 +38,26 @@ string CD::getName() const
 	return this->name;
 }
 
+void CD::setAuthor(string author)
+{
+	this->author=author;
+}
+
+string CD::getAuthor() const
+{
+	return this->getAuthor();
+}
+
+void CD::setAmount(int amount)
+{
+	this->amount=amount;
+}
+
+int CD::getAmount() const
+{
+	return this->amount;
+}
+
 void CD::setLoaned(bool loaned)
 {
 	this->loaned=loaned;

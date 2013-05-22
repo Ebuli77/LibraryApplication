@@ -11,7 +11,7 @@ using namespace std;
 
 Article::Article(string name): loan_expiration_time(0), name(name), type(NONE), loaned(false)
 {
-
+	amount=0;
 }
 
 /*
@@ -45,6 +45,27 @@ void Article::setName(string name)
 {
 	this->name=name;
 }
+
+void Article::setAuthor(string author)
+{
+	this->author=author;
+}
+
+string Article::getAuthor() const
+{
+	return this->author;
+}
+
+void Article::setAmount(int amount)
+{
+	this->amount=amount;
+}
+
+int Article::getAmount() const
+{
+	return this->amount;
+}
+
 /*
 void Article::setType(TYPE type)
 {

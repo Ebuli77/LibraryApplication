@@ -34,7 +34,8 @@ protected:
 	string name;					///< name of article
 	TYPE type;
 	bool loaned;
-
+	string author;
+	int amount;
 
 public:
 	Article(string name);
@@ -42,6 +43,11 @@ public:
 	virtual void setLoaned(bool loaned); //set the loaned flag
 	virtual void setName(string name);
 	virtual string getName() const;
+
+	virtual void setAuthor(string author);
+	virtual string getAuthor() const;
+	virtual void setAmount(int amount);
+	virtual int getAmount() const;
 
 	//virtual void setType(TYPE type);
 	virtual TYPE getType() const;

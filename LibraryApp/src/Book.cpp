@@ -42,6 +42,26 @@ string Book::getName() const
 	return this->name;
 }
 
+void Book::setAuthor(string author)
+{
+	this->author=author;
+}
+
+string Book::getAuthor() const
+{
+	return this->author;
+}
+
+void Book::setAmount(int amount)
+{
+	this->amount=amount;
+}
+
+int Book::getAmount() const
+{
+	return this->amount;
+}
+
 void Book::setPages(int pages)
 {
 	this->pages=pages;

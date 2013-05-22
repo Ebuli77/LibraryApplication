@@ -45,6 +45,26 @@ string Movie::getName() const
 	return this->name;
 }
 
+void Movie::setAuthor(string author)
+{
+	this->author=author;
+}
+
+string Movie::getAuthor()const
+{
+	return this->author;
+}
+
+void Movie::setAmount(int amout)
+{
+	this->amount=amount;
+}
+
+int Movie::getAmount() const
+{
+	return this->amount;
+}
+
 Article::TYPE Movie::getType() const
 {
 	return this->type;

@@ -24,6 +24,11 @@ public:
 	void setName(string name);
 	string getName() const;
 
+	void setAuthor(string author);
+	string getAuthor() const;
+	void setAmount(int amount);
+	int getAmount() const;
+
 	void setAgeLimit(int ageLimit);
 	int getAgeLimit() const;
 
