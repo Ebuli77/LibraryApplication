@@ -45,11 +45,12 @@ void Article::setName(string name)
 {
 	this->name=name;
 }
-
+/*
 void Article::setType(TYPE type)
 {
 	this->type=type;
 }
+*/
 Article::TYPE Article::getType() const
 {
 	return this->type;

@@ -18,10 +18,15 @@ private:
 public:
 	Book(string name);
 	virtual ~Book();
+
 	void setPages(int pages);
 	int getPages() const;
 	void setLoaned(bool loaned);
+	bool isLoaned() const;
 	void setName(string name);
+	string getName() const;
+	Article::TYPE getType() const;
+
 };
 
 #endif /* BOOK_H_ */
