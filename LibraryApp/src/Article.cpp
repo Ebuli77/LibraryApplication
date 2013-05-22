@@ -18,8 +18,8 @@ Article::Article(string name): loan_expiration_time(0), name(name), type(NONE), 
 Article(string name, TYPE type, time_t loan_time): name(name), loan_time(loan_time), type(type)
 {
 
-}
-*/
+}*/
+
 
 Article::~Article()
 {
@@ -30,3 +30,28 @@ bool Article::isLoaned()
 {
 	return false;
 }
+
+string Article::getName() const
+{
+	return this->name;
+}
+
+void Article::setLoaned(bool loaned)
+{
+	///< mark as loaned, return false is already is loaned
+}
+
+void Article::setName(string name)
+{
+	this->name=name;
+}
+
+void Article::setType(TYPE type)
+{
+	this->type=type;
+}
+Article::TYPE Article::getType() const
+{
+	return this->type;
+}
+

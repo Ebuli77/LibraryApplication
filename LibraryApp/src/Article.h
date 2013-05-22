@@ -32,16 +32,16 @@ private:
 	string name;					///< name of article
 	TYPE type;
 	bool loaned;
+	Article(Article & article); // hide copy constructor
 
 protected:
-	void setLoaned(bool loaned);	///< mark as loaned, return false is already is loaned
+	virtual void setLoaned(bool loaned);	///< mark as loaned, return false is already is loaned
 
-	void setName(string name);
-	string getName();
+	virtual void setName(string name);
+	virtual string getName() const;
 
-	void setType(TYPE type);
-	void getType();
-
+	virtual void setType(TYPE type);
+	virtual TYPE getType() const;
 
 
 public:
@@ -50,8 +50,8 @@ public:
 	//Article(string name, TYPE type, time_t loan_time);
 	virtual ~Article();
 
-	bool isLoaned();
-	bool isExpired();
+	virtual bool isLoaned(); // Client can ask if book is available
+	virtual bool isExpired(); //Client can ask if their loan is expired
 
 	friend class Library;
 };

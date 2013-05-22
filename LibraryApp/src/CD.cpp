@@ -8,13 +8,13 @@
 
 CD::CD(string name): Article(name)
 {
-	// TODO Auto-generated constructor stub
+	duration=0;
 
 }
 
 CD::~CD()
 {
-	// TODO Auto-generated destructor stub
+
 }
 
 
