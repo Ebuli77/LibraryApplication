@@ -19,7 +19,7 @@ public:
 	CD(string name);
 	virtual ~CD();
 
-	void setDuration(int duration);//set duration in minutes
+	void setDuration(int duration);//set duration in seconds
 	int getDuration() const; //get duration
 
 	void setLoaned(bool loaned); //set the loaned flag
