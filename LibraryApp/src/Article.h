@@ -27,14 +27,14 @@ public:
 		MOVIE
 	};
 
-private:
+protected:
 	time_t loan_expiration_time;	///< expiration time
 	string name;					///< name of article
 	TYPE type;
 	bool loaned;
 	Article(Article & article); // hide copy constructor
 
-protected:
+public:
 	virtual void setLoaned(bool loaned);	///< mark as loaned, return false is already is loaned
 
 	virtual void setName(string name);
@@ -44,14 +44,14 @@ protected:
 	virtual TYPE getType() const;
 
 
-public:
+
 
 	Article(string name);
 	//Article(string name, TYPE type, time_t loan_time);
 	virtual ~Article();
 
-	virtual bool isLoaned(); // Client can ask if book is available
-	virtual bool isExpired(); //Client can ask if their loan is expired
+	virtual bool isLoaned() const; // Client can ask if book is available
+	virtual bool isExpired() const; //Client can ask if their loan is expired
 
 	friend class Library;
 };

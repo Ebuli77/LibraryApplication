@@ -17,4 +17,20 @@ Book::~Book()
 {
 	// TODO Auto-generated destructor stub
 }
+void Book::setLoaned(bool loaned)
+{
+	this->setLoaned(loaned);
+}
+void Book::setName(string name)
+{
+	this->name=name;
+}
+void Book::setPages(int pages)
+{
+	this->pages=pages;
+}
 
+int Book::getPages() const
+{
+	return this->pages;
+}

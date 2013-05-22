@@ -26,7 +26,7 @@ Article::~Article()
 	// TODO Auto-generated destructor stub
 }
 
-bool Article::isLoaned()
+bool Article::isLoaned() const
 {
 	return false;
 }
@@ -55,3 +55,8 @@ Article::TYPE Article::getType() const
 	return this->type;
 }
 
+
+bool Article::isExpired()const
+{
+	return false;
+}

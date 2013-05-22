@@ -14,9 +14,14 @@ class Book: public Article
 {
 private:
 	int pages; ///< number of pages
+	Book(Book & book);
 public:
 	Book(string name);
 	virtual ~Book();
+	void setPages(int pages);
+	int getPages() const;
+	void setLoaned(bool loaned);
+	void setName(string name);
 };
 
 #endif /* BOOK_H_ */
