@@ -52,7 +52,7 @@ public:
 	virtual bool isLoaned() const; // Client can ask if book is available
 	virtual bool isExpired() const; //Client can ask if their loan is expired
 
-	friend class Library;
+	//friend class Library;
 };
 
 #endif /* ARTICLE_H_ */
