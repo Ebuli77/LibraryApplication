@@ -39,7 +39,7 @@ public:
 	bool deleteCustomer(Customer *customer);
 
 	// loan operations
-	bool setLoan(Article *article, Customer *customer);
+	bool startLoan(Article *article, Customer *customer);
 	bool returnLoan(Article *article);
 	bool updateLoan(Article *article);
 

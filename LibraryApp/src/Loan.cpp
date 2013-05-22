@@ -7,9 +7,8 @@
 
 #include "Loan.h"
 
-Loan::Loan(Customer *customer, Article *article): p_customer(customer), p_article(article)
+Loan::Loan(Article *article, Customer *customer): p_customer(customer), p_article(article), loan_start_time(0), renew_count(3)
 {
-	// TODO Auto-generated constructor stub
 
 }
 

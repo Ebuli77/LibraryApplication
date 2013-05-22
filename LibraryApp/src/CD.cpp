@@ -63,6 +63,7 @@ void CD::setLoaned(bool loaned)
 	this->loaned=loaned;
 }
 
+
 bool CD::isLoaned() const
 {
 	return this->loaned;

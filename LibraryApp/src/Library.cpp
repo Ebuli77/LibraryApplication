@@ -9,8 +9,10 @@
 #include "Library.h"
 #include "Customer.h"
 #include "Article.h"
+#include "Loan.h"
 
 using namespace std;
+
 
 Library::Library()
 {
@@ -37,6 +39,12 @@ bool Library::addArticle(Article *article)
 	return true;
 }
 
+/*
+ * Deletes article from Library's database
+ *
+ * @param[in] article pointer to article object
+ * @returns true if article was found and deletion succeed, false otherwise
+ */
 bool Library::deleteArticle(Article *article)
 {
 	if ( !article )
@@ -57,7 +65,7 @@ bool Library::deleteArticle(Article *article)
 
 vector<Article *> *Library::getArticles()
 {
-	return 0;
+	return p_articles;
 }
 
 // customer handlers
@@ -88,9 +96,16 @@ bool Library::deleteCustomer(Customer *customer)
 }
 
 // loan operations
-bool Library::setLoan(Article *article, Customer *customer)
+bool Library::startLoan(Article *article, Customer *customer)
 {
-	return false;
+	cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
+
+	if ( (article == 0 ) || (customer == 0) )
+		return false;
+
+	p_loans->push_back(new Loan(article, customer));
+
+	return true;
 }
 
 bool Library::returnLoan(Article *article)
