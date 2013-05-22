@@ -28,32 +28,37 @@ public:
 	};
 
 private:
+	Article(Article & article); // hide copy constructor
+protected:
 	time_t loan_expiration_time;	///< expiration time
 	string name;					///< name of article
 	TYPE type;
 	bool loaned;
-
-protected:
-	void setLoaned(bool loaned);	///< mark as loaned, return false is already is loaned
-
-	void setName(string name);
-	string getName();
-
-	void setType(TYPE type);
-	void getType();
-
-
+	string author;
+	int amount;
 
 public:
-
 	Article(string name);
+
+	virtual void setLoaned(bool loaned); //set the loaned flag
+	virtual void setName(string name);
+	virtual string getName() const;
+
+	virtual void setAuthor(string author);
+	virtual string getAuthor() const;
+	virtual void setAmount(int amount);
+	virtual int getAmount() const;
+
+	//virtual void setType(TYPE type);
+	virtual TYPE getType() const;
+
 	//Article(string name, TYPE type, time_t loan_time);
 	virtual ~Article();
 
-	bool isLoaned();
-	bool isExpired();
+	virtual bool isLoaned() const; // Client can ask if book is available
+	virtual bool isExpired() const; //Client can ask if their loan is expired
 
-	friend class Library;
+	//friend class Library;
 };
 
 #endif /* ARTICLE_H_ */

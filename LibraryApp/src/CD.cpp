@@ -8,13 +8,67 @@
 
 CD::CD(string name): Article(name)
 {
-	// TODO Auto-generated constructor stub
+	type=Article::CD;
+	duration=0;
 
 }
 
 CD::~CD()
 {
-	// TODO Auto-generated destructor stub
+
 }
 
+void CD::setDuration(int duration)
+{
+	this->duration=duration;
+}
 
+int CD::getDuration() const
+{
+	return this->duration;
+}
+
+void CD::setName(string name)
+{
+	this->name=name;
+}
+
+string CD::getName() const
+{
+	return this->name;
+}
+
+void CD::setAuthor(string author)
+{
+	this->author=author;
+}
+
+string CD::getAuthor() const
+{
+	return this->getAuthor();
+}
+
+void CD::setAmount(int amount)
+{
+	this->amount=amount;
+}
+
+int CD::getAmount() const
+{
+	return this->amount;
+}
+
+void CD::setLoaned(bool loaned)
+{
+	this->loaned=loaned;
+}
+
+bool CD::isLoaned() const
+{
+	return this->loaned;
+}
+
+bool CD::isExpired() const
+{
+	return false;
+}

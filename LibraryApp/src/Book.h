@@ -14,9 +14,25 @@ class Book: public Article
 {
 private:
 	int pages; ///< number of pages
+	Book(Book & book);
 public:
 	Book(string name);
 	virtual ~Book();
+
+	void setAuthor(string author);
+	string getAuthor() const;
+	void setAmount(int amount);
+	int getAmount() const;
+	void setPages(int pages);
+	int getPages() const;
+	void setLoaned(bool loaned);
+
+	bool isLoaned() const;
+	bool isExpired() const;
+	void setName(string name);
+	string getName() const;
+	Article::TYPE getType() const;
+
 };
 
 #endif /* BOOK_H_ */
