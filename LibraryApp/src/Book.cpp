@@ -27,6 +27,11 @@ bool Book::isLoaned() const
 	return this->loaned;
 }
 
+bool Book::isExpired() const
+{
+	return false;
+}
+
 void Book::setName(string name)
 {
 	this->name=name;

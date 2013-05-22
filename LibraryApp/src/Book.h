@@ -23,6 +23,7 @@ public:
 	int getPages() const;
 	void setLoaned(bool loaned);
 	bool isLoaned() const;
+	bool isExpired() const;
 	void setName(string name);
 	string getName() const;
 	Article::TYPE getType() const;
