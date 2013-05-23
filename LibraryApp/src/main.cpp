@@ -29,13 +29,14 @@ int main() {
 
 	if (pLibrary->startLoan(pBook, pMarkoKaikkonen))
 	{
-		cout << "Kirjan " << pBook->getName() << " lainaaminen onnistui henkilöllä " << pMarkoKaikkonen->getName() << " " << pMarkoKaikkonen->getLastname() << endl;
+		cout << "Book " << pBook->getName() << " loan succeed by customer " << pMarkoKaikkonen->getName() << " " << pMarkoKaikkonen->getLastname() << endl;
 	}
 
 	print_articles(pLibrary);
 
 
 
+	pLibrary->deleteCustomer(pMarkoKaikkonen);
 	pLibrary->deleteArticle(pBook);
 
 

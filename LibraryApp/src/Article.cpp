@@ -5,6 +5,7 @@
  *      Author: makai
  */
 
+#include <iostream>
 #include "Article.h"
 
 using namespace std;
@@ -23,6 +24,7 @@ Article(string name, TYPE type, time_t loan_time): name(name), loan_time(loan_ti
 
 Article::~Article()
 {
+	cout << "Article " << getName() << " deleted!" << endl;
 	// TODO Auto-generated destructor stub
 }
 

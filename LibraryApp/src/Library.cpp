@@ -50,16 +50,18 @@ bool Library::deleteArticle(Article *article)
 	if ( !article )
 		return false;
 
-	//cout << "Library: poistetaan teos " << article->getName() << "." << endl;
-	for (unsigned int i=0; i < p_articles->size(); i++)
+	cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
+
+	vector<Article *>::iterator arti_itr;
+	for (arti_itr = p_articles->begin(); arti_itr < p_articles->end(); arti_itr++)
 	{
-		if ( article == p_articles->at(i) )
+		if ( (*arti_itr) == article)
 		{
-			cout << "  " << "teos poistettu!" << endl;
+			cout << "  Article " << (*arti_itr)->getName() << " found and deleted!" << endl;
 			return true;
 		}
-
 	}
+
 	return false;
 }
 
@@ -77,25 +79,44 @@ bool Library::addCustomer(Customer *customer)
 	return 0;
 }
 
+/**
+ * Removes customer from customer container.
+ *
+ * Iterates through customers pointer stack and removes it when matching pointer is found.
+ *
+ * @param[in] customer	customer pointer
+ * @return true when successful
+ */
 bool Library::deleteCustomer(Customer *customer)
 {
 	if ( !customer )
 		return false;
 
-	cout << "Library: poistetaan asiakas " << customer->getName() << " " << customer->getLastname() << "." << endl;
-	for (unsigned int i=0; i < p_customers->size(); i++)
+	cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
+
+	vector<Customer *>::iterator cust_itr;
+	for (cust_itr = p_customers->begin(); cust_itr < p_customers->end(); cust_itr++)
 	{
-		if ( customer == p_customers->at(i) )
+		if ( (*cust_itr) == customer)
 		{
-			cout << "  " << "asiakas poistettu!" << endl;
+			cout << "  Customer " << (*cust_itr)->getLastname() << " found and deleted!" << endl;
 			return true;
 		}
-
 	}
+
 	return false;
 }
 
-// loan operations
+/**
+ * Starting loan operation.
+ *
+ * Pushes new Loan object containing article and customer object pointers
+ * to p_loans pointer stack.
+ *
+ * @param[in] article	article pointer
+ * @param[in] customer	customer pointer
+ * @return true when successful
+ */
 bool Library::startLoan(Article *article, Customer *customer)
 {
 	cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
