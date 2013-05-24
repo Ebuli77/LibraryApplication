@@ -18,7 +18,7 @@ class Customer
 {
 private:
 	vector<Article *> p_loans;
-	string name;
+	string firstname;
 	string lastname;
 
 	bool setArticle(Article *article);
@@ -27,13 +27,13 @@ private:
 	friend class Library;
 public:
 	Customer();
-	Customer(string name, string lastname);
+	Customer(string firstname, string lastname);
 
-	void setName(string name);
-	string getName();
+	void setFirstName(string firstname);
+	string getFirstName();
 
-	void setLastname(string name);
-	string getLastname();
+	void setLastName(string lastname);
+	string getLastName();
 
 	virtual ~Customer();
 

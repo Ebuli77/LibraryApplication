@@ -11,37 +11,37 @@
 
 using namespace std;
 
-Customer::Customer(): p_loans(0), name("N/A"), lastname("N/A")
+Customer::Customer(): p_loans(0), firstname("N/A"), lastname("N/A")
 {
-	cout << "Customer " << name << " " << lastname << " created!" << endl;
+	cout << "Customer " << firstname << " " << lastname << " created!" << endl;
 }
 
-Customer::Customer(string name, string lastname): p_loans(0), name(name), lastname(lastname)
+Customer::Customer(string firstname, string lastname): p_loans(0), firstname(firstname), lastname(lastname)
 {
-	cout << "Customer " << name << " " << lastname << " created!" << endl;
+	cout << "Customer " << firstname << " " << lastname << " created!" << endl;
 }
 
 Customer::~Customer()
 {
-	cout << "Customer " << name << " " << lastname << " deleted!" << endl;
+	cout << "Customer " << firstname << " " << lastname << " deleted!" << endl;
 }
 
-void Customer::setName(string name)
+void Customer::setFirstName(string firstname)
 {
-	this->name = name;
+	this->firstname = firstname;
 }
 
-string Customer::getName()
+string Customer::getFirstName()
 {
-	return name;
+	return firstname;
 }
 
-void Customer::setLastname(string lastname)
+void Customer::setLastName(string lastname)
 {
 	this->lastname = lastname;
 }
 
-string Customer::getLastname()
+string Customer::getLastName()
 {
 	return lastname;
 }

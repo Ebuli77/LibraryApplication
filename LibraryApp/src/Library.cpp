@@ -16,26 +16,27 @@ using namespace std;
 
 Library::Library()
 {
-	p_articles = new vector<Article *>();
-	p_customers = new vector<Customer *>();
-	p_loans = new vector<Loan *>();
+	articles = new vector<Article *>();
+	customers = new vector<Customer *>();
+	loans = new vector<Loan *>();
 
-	cout << "Library created!" << endl;
+	//cout << "Library created!" << endl;
 }
 
 Library::~Library()
 {
-	delete p_articles;
-	delete p_customers;
-	delete p_loans;
+	delete articles;
+	delete customers;
+	delete loans;
 
-	cout << "Library deleted!" << endl;
+	//cout << "Library deleted!" << endl;
 }
 
 // library content handlers
 bool Library::addArticle(Article *article)
 {
-	p_articles->push_back(article);
+	cout << "Adding article " << article->getName();
+	articles->push_back(article);
 	return true;
 }
 
@@ -50,10 +51,10 @@ bool Library::deleteArticle(Article *article)
 	if ( !article )
 		return false;
 
-	cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
+	//cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
 
 	vector<Article *>::iterator arti_itr;
-	for (arti_itr = p_articles->begin(); arti_itr < p_articles->end(); arti_itr++)
+	for (arti_itr = articles->begin(); arti_itr < articles->end(); arti_itr++)
 	{
 		if ( (*arti_itr) == article)
 		{
@@ -67,14 +68,14 @@ bool Library::deleteArticle(Article *article)
 
 vector<Article *> *Library::getArticles()
 {
-	return p_articles;
+	return articles;
 }
 
 // customer handlers
 bool Library::addCustomer(Customer *customer)
 {
 	// should we check if customer already exists?
-	p_customers->push_back(customer);
+	customers->push_back(customer);
 
 	return 0;
 }
@@ -92,19 +93,24 @@ bool Library::deleteCustomer(Customer *customer)
 	if ( !customer )
 		return false;
 
-	cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
+	//cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
 
 	vector<Customer *>::iterator cust_itr;
-	for (cust_itr = p_customers->begin(); cust_itr < p_customers->end(); cust_itr++)
+	for (cust_itr = customers->begin(); cust_itr < customers->end(); cust_itr++)
 	{
 		if ( (*cust_itr) == customer)
 		{
-			cout << "  Customer " << (*cust_itr)->getLastname() << " found and deleted!" << endl;
+			cout << "  Customer " << (*cust_itr)->getLastName() << " found and deleted!" << endl;
 			return true;
 		}
 	}
 
 	return false;
+}
+
+vector<Customer *> *Library::getCustomers()
+{
+	return customers;
 }
 
 /**
@@ -119,12 +125,12 @@ bool Library::deleteCustomer(Customer *customer)
  */
 bool Library::startLoan(Article *article, Customer *customer)
 {
-	cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
+	//cout << "*** FUNC: " << __FUNCTION__ << "***" << endl;
 
 	if ( (article == 0 ) || (customer == 0) )
 		return false;
 
-	p_loans->push_back(new Loan(article, customer));
+	loans->push_back(new Loan(article, customer));
 
 	return true;
 }
@@ -143,3 +149,5 @@ vector<Article *> *Library::getExpired()
 {
 	return 0;
 }
+
+

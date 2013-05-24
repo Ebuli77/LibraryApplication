@@ -5,9 +5,13 @@
  */
 
 #include "CD.h"
+#include <iostream>
+
+using namespace std;
 
 CD::CD(string name): Article(name)
 {
+	cout << "\nAdded CD " << name << endl;
 	type=Article::CD;
 	duration=0;
 

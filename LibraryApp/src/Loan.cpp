@@ -7,12 +7,22 @@
 
 #include "Loan.h"
 
-Loan::Loan(Article *article, Customer *customer): p_customer(customer), p_article(article), loan_start_time(0), renew_count(3)
+Loan::Loan(Article *article, Customer *customer): customer(customer), article(article), loan_start_time(0), renew_count(3)
 {
 
 }
 
-Loan::~Loan() {
+Loan::~Loan()
+{
 	// TODO Auto-generated destructor stub
 }
 
+bool Loan::renewLoan()
+{
+	return true;
+}
+
+bool Loan::isExpired()
+{
+	return true;
+}

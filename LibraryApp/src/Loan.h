@@ -15,12 +15,14 @@ class Article;
 class Loan
 {
 private:
-	Customer *p_customer;
-	Article *p_article;
+	Customer *customer;
+	Article *article;
 	time_t loan_start_time;
 	int renew_count;
 public:
 	Loan(Article *article, Customer *customer);
+	bool renewLoan();
+	bool isExpired();
 	virtual ~Loan();
 };
 

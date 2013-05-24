@@ -6,10 +6,13 @@
  */
 
 #include "Movie.h"
+#include <iostream>
+
+using namespace std;
 
 Movie::Movie(string name): Article(name)
 {
-	// TODO Auto-generated constructor stub
+	cout << "\nCreated movie " << name << endl;
 	duration=0;
 	ageLimit=0;
 	genre = " ";
