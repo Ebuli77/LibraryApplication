@@ -21,6 +21,9 @@ void print_articles(Library *pLib);
 void initLibrary(Library *pLib);
 int showMenu();
 
+void showArticles(vector<Article *> *pArticles);
+void showCustomers(vector<Customer *> *pCustomers);
+
 using namespace std;
 
 int main()
@@ -57,11 +60,11 @@ int main()
 			{
 				cout << " - " ;
 
-				if ((*ar_it)->getType() == 1)
+				if ((*ar_it)->getType() == Article::BOOK)
 					cout << "Book";
-				else if ((*ar_it)->getType() == 0)
+				else if ((*ar_it)->getType() == Article::MOVIE)
 					cout << "Movie";
-				else if ((*ar_it)->getType() == 2)
+				else if ((*ar_it)->getType() == Article::CD)
 					cout << "CD";
 				else cout << "Other";
 
@@ -144,6 +147,24 @@ int main()
 			break;
 
 		case 3:
+			unsigned int article_idx;
+
+			cout << "\nWhich article do you want to remove";
+			showArticles(pLibrary->getArticles());
+			cout << " :";
+			cin >> article_idx;
+
+			if ( (article_idx > 0) && (article_idx < pLibrary->getArticles()->size()) )
+			{
+				Article *pRemovedArticle = pLibrary->getArticles()->at(article_idx);
+				pLibrary->getArticles()->erase(pLibrary->getArticles()->begin() + article_idx);
+				delete pRemovedArticle; ///< remember also to free memory reserved for the article
+
+			}
+			else
+			{
+				cout << "No such article found!\n";
+			}
 			// Remove an article
 			break;
 
@@ -173,7 +194,25 @@ int main()
 			break;
 
 		case 7:
-			//Remove customer
+			// remove customer
+			unsigned int customer_idx;
+
+			cout << "\nWhich customer do you want to remove";
+			showCustomers(pLibrary->getCustomers());
+			cout << " :";
+			cin >> customer_idx;
+
+			if ( (customer_idx > 0) && (customer_idx < pLibrary->getCustomers()->size()) )
+			{
+				Customer *pRemovedCustomer = pLibrary->getCustomers()->at(customer_idx);
+				pLibrary->getCustomers()->erase(pLibrary->getCustomers()->begin() + customer_idx);
+				delete pRemovedCustomer; ///< remember also to free memory reserved for the article
+
+			}
+			else
+			{
+				cout << "No such article found!\n";
+			}
 			break;
 
 		case 8:
@@ -242,4 +281,44 @@ int showMenu()
 	cin>>selection;
 
 	return selection;
+}
+
+
+void showArticles(vector<Article *> *pArticles)
+{
+	vector<Article *>::iterator ar_it;
+	cout << "\n";
+
+	int i = 0;
+	for (ar_it = pArticles->begin(); ar_it < pArticles->end(); ar_it++)
+	{
+		cout << " " << i++ << ": " ;
+
+		if ((*ar_it)->getType() == Article::BOOK)
+			cout << "Book";
+		else if ((*ar_it)->getType() == Article::MOVIE)
+			cout << "Movie";
+		else if ((*ar_it)->getType() == Article::CD)
+			cout << "CD";
+		else cout << "Other";
+
+		cout << " : " << (*ar_it)->getName() << " - \n";
+	}
+
+}
+
+void showCustomers(vector<Customer *> *pCustomers)
+{
+	vector<Customer *>::iterator cu_it;
+	cout << "\n";
+
+	int i = 0;
+
+	for (cu_it = pCustomers->begin(); cu_it < pCustomers->end(); cu_it++)
+	{
+		cout << " " << i++ << ": " << (*cu_it)->getFirstName() << " "//
+				<< (*cu_it)->getLastName() << " - \n";
+
+	}
+
 }
