@@ -224,6 +224,20 @@ int main()
 		}
 
 	}
+	//Delete dynamic objects
+
+	for (unsigned int i=0; i < pLibrary->getArticles()->size(); i++ )
+	{
+		cout << " deleting article: " << i << endl;
+		delete pLibrary->getArticles()->at(i);
+	}
+
+	for (unsigned int i=0; i < pLibrary->getCustomers()->size(); i++ )
+	{
+		cout << " deleting customer: " << i << endl;
+		delete pLibrary->getCustomers()->at(i);
+	}
+
 	delete pLibrary;
 }
 
