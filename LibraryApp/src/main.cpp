@@ -182,7 +182,7 @@ int main()
 			showArticles(pLibrary->getArticles());
 			cout << " :";
 			cin >> art_idx;
-			if((art_idx>=0) && (art_idx<pLibrary->getArticles()->size()))
+			if((art_idx>=0) && (art_idx < pLibrary->getArticles()->size()))
 			{
 				if((cstmr_idx>=0)&&(cstmr_idx<pLibrary->getCustomers()->size()))
 				{
