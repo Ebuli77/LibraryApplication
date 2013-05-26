@@ -24,7 +24,7 @@ int showMenu();
 
 void showArticles(vector<Article *> *pArticles);
 void showCustomers(vector<Customer *> *pCustomers);
-
+void showLoans(vector<Loan *> *pLoans);
 using namespace std;
 
 int main()
@@ -213,8 +213,8 @@ int main()
 
 			break;
 		case 5:
-			int loan_index;
-
+			//showLoans(pLibrary->getLoans());
+			cout << "Loaned "<<endl;
 			break;
 		case 6:
 			cv = pLibrary->getCustomers();
@@ -390,6 +390,6 @@ void showLoans(vector<Loan *> *pLoans)
 
 	for(lo_it=pLoans->begin();lo_it<pLoans->end();lo_it++)
 	{
-		//cout <<(*lo_it)->getArticle()->getName() <<" is loaned to Customer: "<<(*lo_it)->getCustomer()->getFirstName()<<" "<<(*lo_it)->getCustomer()->getLastName();
+		//cout<<(*lo_it)->getArticle()->getName()<<endl;
 	}
 }

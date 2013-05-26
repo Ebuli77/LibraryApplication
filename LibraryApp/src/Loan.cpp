@@ -17,12 +17,12 @@ Loan::~Loan()
 	// TODO Auto-generated destructor stub
 }
 
-Customer* Loan::getCustomer() const
+Customer* Loan::getCustomer()
 {
 	return this->customer;
 }
 
-Article* Loan::getArticle() const
+Article* Loan::getArticle()
 {
 	return this->article;
 }
