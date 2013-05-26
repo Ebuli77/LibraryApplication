@@ -154,7 +154,7 @@ int main()
 			cout << " :";
 			cin >> article_idx;
 
-			if ( (article_idx > 0) && (article_idx < pLibrary->getArticles()->size()) )
+			if ( (article_idx >= 0) && (article_idx < pLibrary->getArticles()->size()) )
 			{
 				Article *pRemovedArticle = pLibrary->getArticles()->at(article_idx);
 				pLibrary->getArticles()->erase(pLibrary->getArticles()->begin() + article_idx);
@@ -202,7 +202,7 @@ int main()
 			cout << " :";
 			cin >> customer_idx;
 
-			if ( (customer_idx > 0) && (customer_idx < pLibrary->getCustomers()->size()) )
+			if ( (customer_idx >= 0) && (customer_idx < pLibrary->getCustomers()->size()) )
 			{
 				Customer *pRemovedCustomer = pLibrary->getCustomers()->at(customer_idx);
 				pLibrary->getCustomers()->erase(pLibrary->getCustomers()->begin() + customer_idx);
@@ -259,7 +259,7 @@ void print_articles(Library *pLib)
 
 void initLibrary(Library *pLib)
 {
-	pLib->addCustomer(new Customer("Marko", "Kaikkonen"));
+	pLib->addCustomer(new Customer("Matti", "Meikäläinen"));
 	pLib->addCustomer(new Customer("Teppo", "Testaaja"));
 	pLib->addCustomer(new Customer("Kaisa", "Varis"));
 	pLib->addCustomer(new Customer("Juha", "Kankkunen"));
