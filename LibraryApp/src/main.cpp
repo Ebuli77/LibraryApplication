@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stdio.h>
 
 #include "Library.h"
 #include "Customer.h"
@@ -86,13 +87,14 @@ int main()
 
 			if (selection == 1)
 			{
-
 				string name, auth;
 				cout << "Give the name of the book: ";
-				cin >> name;
+				fflush(stdin);
+				getline(cin, name);
 
-				cout << "\n And give the author: ";
-				cin >> auth;
+				cout << "\nAnd give the author: ";
+				fflush(stdin);
+				getline(cin, auth);
 
 				Book book(name);
 				book.setAuthor(auth);
@@ -104,7 +106,8 @@ int main()
 			{
 				string name;
 				cout << "Give the name of the movie: ";
-				cin >> name;
+				fflush(stdin);
+				getline(cin, name);
 
 				Movie movie(name);
 
@@ -115,10 +118,12 @@ int main()
 			{
 				string name, artist;
 				cout << "Give the name of the album: ";
-				cin >> name;
+				fflush(stdin);
+				getline(cin, name);
 
 				cout << "\n And give the artist: ";
-				cin >> artist;
+				fflush(stdin);
+				getline(cin, artist);
 
 				CD cd(name);
 				cd.setAuthor(artist);
@@ -130,7 +135,8 @@ int main()
 			{
 				string name;
 				cout << "Give the name of the article: ";
-				cin >> name;
+				fflush(stdin);
+				getline(cin, name);
 
 				Article article(name);
 				// TODO: set type to NONE when article type setter is implemented
@@ -219,9 +225,11 @@ int main()
 
 		case 6:
 			cout << "\nPlease give the firstname of a new customer: ";
-			cin >> firstname;
+			fflush(stdin);
+							getline(cin, firstname);
 			cout << "\nAnd give the lastname: ";
-			cin >> lastname;
+			fflush(stdin);
+							getline(cin, lastname);
 			pLibrary->addCustomer(new Customer(firstname, lastname));
 			break;
 
@@ -248,7 +256,7 @@ int main()
 			break;
 
 		case 8:
-			cout << "Bye!";
+			cout << "Bye!\n\n";
 			running = false;
 			break;
 
@@ -260,13 +268,13 @@ int main()
 
 	for (unsigned int i=0; i < pLibrary->getArticles()->size(); i++ )
 	{
-		cout << " deleting article: " << i << endl;
+		//cout << " deleting article: " << i << endl;
 		delete pLibrary->getArticles()->at(i);
 	}
 
 	for (unsigned int i=0; i < pLibrary->getCustomers()->size(); i++ )
 	{
-		cout << " deleting customer: " << i << endl;
+		//cout << " deleting customer: " << i << endl;
 		delete pLibrary->getCustomers()->at(i);
 	}
 
