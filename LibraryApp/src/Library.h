@@ -38,6 +38,8 @@ public:
 	vector<Customer *> *getCustomers();
 
 
+	vector<Loan *> *getLoans();
+
 	// loan operations
 	bool startLoan(Article *article, Customer *customer);
 	bool returnLoan(Article *article);

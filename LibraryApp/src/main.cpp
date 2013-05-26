@@ -44,6 +44,9 @@ int main()
 	vector<Customer *> *cv;
 	vector<Customer *>::iterator cu_it;
 
+	vector<Loan *> *lo;
+	vector<Loan *>::iterator lo_it;
+
 	bool running = true;
 
 
@@ -209,8 +212,11 @@ int main()
 			}
 
 			break;
-
 		case 5:
+			int loan_index;
+
+			break;
+		case 6:
 			cv = pLibrary->getCustomers();
 			cout << "\nCustomers: \n";
 
@@ -223,7 +229,7 @@ int main()
 			cout << "\n\n";
 			break;
 
-		case 6:
+		case 7:
 			cout << "\nPlease give the firstname of a new customer: ";
 			fflush(stdin);
 							getline(cin, firstname);
@@ -233,7 +239,7 @@ int main()
 			pLibrary->addCustomer(new Customer(firstname, lastname));
 			break;
 
-		case 7:
+		case 8:
 			// remove customer
 			unsigned int customer_idx;
 
@@ -255,7 +261,7 @@ int main()
 			}
 			break;
 
-		case 8:
+		case 9:
 			cout << "Bye!\n\n";
 			running = false;
 			break;
@@ -327,10 +333,11 @@ int showMenu()
 	cout<<"2: Add an article\n";
 	cout<<"3: Remove article\n";
 	cout<<"4: Borrow an article\n";
-	cout<<"5: Show customers\n";
-	cout<<"6: Add a customer\n";
-	cout<<"7: Remove customer\n";
-	cout<<"8: Exit\n";
+	cout<<"5: List loaned articles\n";
+	cout<<"6: Show customers\n";
+	cout<<"7: Add a customer\n";
+	cout<<"8: Remove customer\n";
+	cout<<"9: Exit\n";
 	cout<<":";
 	cin>>selection;
 
@@ -374,5 +381,15 @@ void showCustomers(vector<Customer *> *pCustomers)
 				<< (*cu_it)->getLastName() << " - \n";
 
 	}
+}
 
+void showLoans(vector<Loan *> *pLoans)
+{
+	vector<Loan *>::iterator lo_it;
+	cout<<"\n";
+
+	for(lo_it=pLoans->begin();lo_it<pLoans->end();lo_it++)
+	{
+		//cout <<(*lo_it)->getArticle()->getName() <<" is loaned to Customer: "<<(*lo_it)->getCustomer()->getFirstName()<<" "<<(*lo_it)->getCustomer()->getLastName();
+	}
 }

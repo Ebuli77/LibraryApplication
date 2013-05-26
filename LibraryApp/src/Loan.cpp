@@ -17,6 +17,16 @@ Loan::~Loan()
 	// TODO Auto-generated destructor stub
 }
 
+Customer* Loan::getCustomer() const
+{
+	return this->customer;
+}
+
+Article* Loan::getArticle() const
+{
+	return this->article;
+}
+
 bool Loan::renewLoan()
 {
 	return true;
