@@ -170,6 +170,38 @@ int main()
 
 		case 4:
 			// Borrow an article
+
+			unsigned int cstmr_idx; //index of the loaning customer
+			unsigned int art_idx; //index of the loaned article
+
+			cout<< "\nEnter the index of customer loaning the article" <<endl;
+			showCustomers(pLibrary->getCustomers());
+			cin>>cstmr_idx;
+
+			cout << "\nWhich article do you want to remove";
+			showArticles(pLibrary->getArticles());
+			cout << " :";
+			cin >> art_idx;
+			if((art_idx>=0) && (art_idx<pLibrary->getArticles()->size()))
+			{
+				if((cstmr_idx>=0)&&(cstmr_idx<pLibrary->getCustomers()->size()))
+				{
+					pLibrary->startLoan(pLibrary->getArticles()->at(art_idx),pLibrary->getCustomers()->at(cstmr_idx));
+					string tmparticle;
+					tmparticle=pLibrary->getArticles()->at(art_idx)->getName();
+					string tmpcustomer=pLibrary->getCustomers()->at(cstmr_idx)->getFirstName()+" "+pLibrary->getCustomers()->at(cstmr_idx)->getLastName();
+					cout << "Loaned article "<<tmparticle<<" to "<<tmpcustomer;
+				}
+				else
+				{
+					cout<<"Loan failed, customer not selected properly "<<endl;;
+				}
+			}
+			else
+			{
+				cout<<"Loan failed. Article not selected properly "<<endl;
+			}
+
 			break;
 
 		case 5:
