@@ -117,7 +117,8 @@ vector<Customer *> *Library::getCustomers()
  * Starting loan operation.
  *
  * Pushes new Loan object containing article and customer object pointers
- * to p_loans pointer stack.
+ * to p_loans pointer stack. Article and customer must exist in Librarys
+ * database.
  *
  * @param[in] article	article pointer
  * @param[in] customer	customer pointer
