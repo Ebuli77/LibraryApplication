@@ -360,7 +360,8 @@ void showArticles(vector<Article *> *pArticles)
 			cout << "CD";
 		else cout << "Other";
 
-		cout << " : " << (*ar_it)->getName() << " author : " << (*ar_it)->getAuthor() << "\n";
+		cout << " : " << (*ar_it)->getName() << "\n";
+		//cout << " : " << (*ar_it)->getName() << " author : " << (*ar_it)->getAuthor() << "\n";
 	}
 
 }
