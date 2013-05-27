@@ -188,7 +188,7 @@ int main()
 			showCustomers(pLibrary->getCustomers());
 			cin>>cstmr_idx;
 
-			cout << "\nWhich article do you want to remove";
+			cout << "\nWhich article do you want to borrow";
 			showArticles(pLibrary->getArticles());
 			cout << " :";
 			cin >> art_idx;
