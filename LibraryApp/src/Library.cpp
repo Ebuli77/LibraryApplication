@@ -113,6 +113,11 @@ vector<Customer *> *Library::getCustomers()
 	return customers;
 }
 
+vector<Loan *> *Library::getLoans()
+{
+	return loans;
+}
+
 /**
  * Starting loan operation.
  *

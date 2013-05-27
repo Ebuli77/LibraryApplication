@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stdio.h>
 
 #include "Library.h"
 #include "Customer.h"
@@ -23,7 +24,7 @@ int showMenu();
 
 void showArticles(vector<Article *> *pArticles);
 void showCustomers(vector<Customer *> *pCustomers);
-
+void showLoans(vector<Loan *> *pLoans);
 using namespace std;
 
 int main()
@@ -42,6 +43,9 @@ int main()
 
 	vector<Customer *> *cv;
 	vector<Customer *>::iterator cu_it;
+
+	vector<Loan *> *lo;
+	vector<Loan *>::iterator lo_it;
 
 	bool running = true;
 
@@ -86,13 +90,14 @@ int main()
 
 			if (selection == 1)
 			{
-
 				string name, auth;
 				cout << "Give the name of the book: ";
-				cin >> name;
+				fflush(stdin);
+				getline(cin, name);
 
-				cout << "\n And give the author: ";
-				cin >> auth;
+				cout << "\nAnd give the author: ";
+				fflush(stdin);
+				getline(cin, auth);
 
 				Book book(name);
 				book.setAuthor(auth);
@@ -104,7 +109,8 @@ int main()
 			{
 				string name;
 				cout << "Give the name of the movie: ";
-				cin >> name;
+				fflush(stdin);
+				getline(cin, name);
 
 				Movie movie(name);
 
@@ -115,10 +121,12 @@ int main()
 			{
 				string name, artist;
 				cout << "Give the name of the album: ";
-				cin >> name;
+				fflush(stdin);
+				getline(cin, name);
 
 				cout << "\n And give the artist: ";
-				cin >> artist;
+				fflush(stdin);
+				getline(cin, artist);
 
 				CD cd(name);
 				cd.setAuthor(artist);
@@ -130,7 +138,8 @@ int main()
 			{
 				string name;
 				cout << "Give the name of the article: ";
-				cin >> name;
+				fflush(stdin);
+				getline(cin, name);
 
 				Article article(name);
 				// TODO: set type to NONE when article type setter is implemented
@@ -170,9 +179,44 @@ int main()
 
 		case 4:
 			// Borrow an article
-			break;
 
+			unsigned int cstmr_idx; //index of the loaning customer
+			unsigned int art_idx; //index of the loaned article
+
+			cout<< "\nEnter the index of customer loaning the article" <<endl;
+			showCustomers(pLibrary->getCustomers());
+			cin>>cstmr_idx;
+
+			cout << "\nWhich article do you want to remove";
+			showArticles(pLibrary->getArticles());
+			cout << " :";
+			cin >> art_idx;
+			if((art_idx>=0) && (art_idx < pLibrary->getArticles()->size()))
+			{
+				if((cstmr_idx>=0)&&(cstmr_idx<pLibrary->getCustomers()->size()))
+				{
+					pLibrary->startLoan(pLibrary->getArticles()->at(art_idx),pLibrary->getCustomers()->at(cstmr_idx));
+					string tmparticle;
+					tmparticle=pLibrary->getArticles()->at(art_idx)->getName();
+					string tmpcustomer=pLibrary->getCustomers()->at(cstmr_idx)->getFirstName()+" "+pLibrary->getCustomers()->at(cstmr_idx)->getLastName();
+					cout << "Loaned article "<<tmparticle<<" to "<<tmpcustomer;
+				}
+				else
+				{
+					cout<<"Loan failed, customer not selected properly "<<endl;;
+				}
+			}
+			else
+			{
+				cout<<"Loan failed. Article not selected properly "<<endl;
+			}
+
+			break;
 		case 5:
+			//showLoans(pLibrary->getLoans());
+			cout << "Loaned "<<endl;
+			break;
+		case 6:
 			cv = pLibrary->getCustomers();
 			cout << "\nCustomers: \n";
 
@@ -185,15 +229,17 @@ int main()
 			cout << "\n\n";
 			break;
 
-		case 6:
+		case 7:
 			cout << "\nPlease give the firstname of a new customer: ";
-			cin >> firstname;
+			fflush(stdin);
+							getline(cin, firstname);
 			cout << "\nAnd give the lastname: ";
-			cin >> lastname;
+			fflush(stdin);
+							getline(cin, lastname);
 			pLibrary->addCustomer(new Customer(firstname, lastname));
 			break;
 
-		case 7:
+		case 8:
 			// remove customer
 			unsigned int customer_idx;
 
@@ -215,8 +261,8 @@ int main()
 			}
 			break;
 
-		case 8:
-			cout << "Bye!";
+		case 9:
+			cout << "Bye!\n\n";
 			running = false;
 			break;
 
@@ -228,13 +274,13 @@ int main()
 
 	for (unsigned int i=0; i < pLibrary->getArticles()->size(); i++ )
 	{
-		cout << " deleting article: " << i << endl;
+		//cout << " deleting article: " << i << endl;
 		delete pLibrary->getArticles()->at(i);
 	}
 
 	for (unsigned int i=0; i < pLibrary->getCustomers()->size(); i++ )
 	{
-		cout << " deleting customer: " << i << endl;
+		//cout << " deleting customer: " << i << endl;
 		delete pLibrary->getCustomers()->at(i);
 	}
 
@@ -287,10 +333,11 @@ int showMenu()
 	cout<<"2: Add an article\n";
 	cout<<"3: Remove article\n";
 	cout<<"4: Borrow an article\n";
-	cout<<"5: Show customers\n";
-	cout<<"6: Add a customer\n";
-	cout<<"7: Remove customer\n";
-	cout<<"8: Exit\n";
+	cout<<"5: List loaned articles\n";
+	cout<<"6: Show customers\n";
+	cout<<"7: Add a customer\n";
+	cout<<"8: Remove customer\n";
+	cout<<"9: Exit\n";
 	cout<<":";
 	cin>>selection;
 
@@ -334,5 +381,15 @@ void showCustomers(vector<Customer *> *pCustomers)
 				<< (*cu_it)->getLastName() << " - \n";
 
 	}
+}
 
+void showLoans(vector<Loan *> *pLoans)
+{
+	vector<Loan *>::iterator lo_it;
+	cout<<"\n";
+
+	for(lo_it=pLoans->begin();lo_it<pLoans->end();lo_it++)
+	{
+		//cout<<(*lo_it)->getArticle()->getName()<<endl;
+	}
 }

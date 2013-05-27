@@ -21,6 +21,8 @@ private:
 	int renew_count;
 public:
 	Loan(Article *article, Customer *customer);
+	Customer *getCustomer();
+	Article *getArticle();
 	bool renewLoan();
 	bool isExpired();
 	virtual ~Loan();
