@@ -16,6 +16,7 @@
 #include "Movie.h"
 #include "CD.h"
 #include "Article.h"
+#include "Loan.h"
 
 
 void print_articles(Library *pLib);
@@ -44,7 +45,7 @@ int main()
 	vector<Customer *> *cv;
 	vector<Customer *>::iterator cu_it;
 
-	vector<Loan *> *lo;
+	//vector<Loan *> *lo;
 	vector<Loan *>::iterator lo_it;
 
 	bool running = true;
@@ -213,8 +214,8 @@ int main()
 
 			break;
 		case 5:
-			//showLoans(pLibrary->getLoans());
-			cout << "Loaned "<<endl;
+			showLoans(pLibrary->getLoans());
+			//cout << "Loaned "<<endl;
 			break;
 		case 6:
 			cv = pLibrary->getCustomers();
@@ -388,8 +389,18 @@ void showLoans(vector<Loan *> *pLoans)
 	vector<Loan *>::iterator lo_it;
 	cout<<"\n";
 
+
+	/*
+	for (unsigned int i=0; i < pLoans->size(); i++ )
+	{
+		cout << "  " << (pLoans->at(i))->getArticle() << endl;
+	}
+	*/
+
 	for(lo_it=pLoans->begin();lo_it<pLoans->end();lo_it++)
 	{
-		//cout<<(*lo_it)->getArticle()->getName()<<endl;
+		//cout<<(*lo_it)->getArticle()->getName()<< " "endl;
+		cout << (*lo_it)->getArticle()->getName() << " is loaned to Customer: " << (*lo_it)->getCustomer()->getFirstName() << " " << (*lo_it)->getCustomer()->getLastName();
 	}
+
 }
