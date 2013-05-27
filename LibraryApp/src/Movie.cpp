@@ -13,6 +13,7 @@ using namespace std;
 Movie::Movie(string name): Article(name)
 {
 	cout << "\nCreated movie " << name << endl;
+	type=Article::MOVIE;
 	duration=0;
 	ageLimit=0;
 	genre = " ";

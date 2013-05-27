@@ -39,6 +39,7 @@ protected:
 
 public:
 	Article(string name);
+	Article(string name, TYPE type);
 
 	virtual void setLoaned(bool loaned); //set the loaned flag
 	virtual void setName(string name);

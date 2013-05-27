@@ -100,10 +100,9 @@ int main()
 				fflush(stdin);
 				getline(cin, auth);
 
-				Book book(name);
-				book.setAuthor(auth);
-				pLibrary->addArticle(&book);
-
+				Book *newBook = new Book(name);
+				newBook->setAuthor(auth);
+				pLibrary->addArticle(newBook);
 			}
 
 			else if (selection == 2)
@@ -113,9 +112,8 @@ int main()
 				fflush(stdin);
 				getline(cin, name);
 
-				Movie movie(name);
-
-				pLibrary->addArticle(&movie);
+				Movie *newMovie = new Movie(name);
+				pLibrary->addArticle(newMovie);
 			}
 
 			else if (selection == 3)
@@ -129,10 +127,9 @@ int main()
 				fflush(stdin);
 				getline(cin, artist);
 
-				CD cd(name);
-				cd.setAuthor(artist);
-				pLibrary->addArticle(&cd);
-
+				CD *newCD = new CD(name);
+				newCD->setAuthor(artist);
+				pLibrary->addArticle(newCD);
 			}
 
 			else if (selection == 4)
@@ -142,10 +139,9 @@ int main()
 				fflush(stdin);
 				getline(cin, name);
 
-				Article article(name);
+				Article *newArticle = new Article(name);
+				pLibrary->addArticle(newArticle);
 				// TODO: set type to NONE when article type setter is implemented
-				pLibrary->addArticle(&article);
-
 			}
 
 			else
@@ -364,7 +360,7 @@ void showArticles(vector<Article *> *pArticles)
 			cout << "CD";
 		else cout << "Other";
 
-		cout << " : " << (*ar_it)->getName() << " - \n";
+		cout << " : " << (*ar_it)->getName() << " author : " << (*ar_it)->getAuthor() << "\n";
 	}
 
 }

@@ -15,11 +15,11 @@ Article::Article(string name): loan_expiration_time(0), name(name), type(NONE), 
 	amount=0;
 }
 
-/*
-Article(string name, TYPE type, time_t loan_time): name(name), loan_time(loan_time), type(type)
+
+Article::Article(string name, TYPE type): loan_expiration_time(0), name(name), type(type), loaned(true)
 {
 
-}*/
+}
 
 
 Article::~Article()
